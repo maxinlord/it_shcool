@@ -9,7 +9,7 @@ def _parse_input(input_str: str) -> tuple[list[int], str]:
     operation = [operation for operation in input_str.split() if operation in "+-*/"]
 
     # Проверяем кол-во операторов и чисел
-    if len(operation) > 1 and len(numbers) > 2:
+    if len(operation) > 1 and len(numbers) > 1:
         raise Exception(
             "//т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)"
         )
