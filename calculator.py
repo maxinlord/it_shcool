@@ -6,10 +6,10 @@ def _parse_input(input_str: str) -> tuple[list[int], str]:
     numbers = [int(num) for num in input_str.split() if num.isdigit()]
 
     # Извлекаем операцию
-    operation = [operation for operation in input_str.split() if operation in "+-*/"]
+    operations = [operation for operation in input_str.split() if operation in "+-*/"]
 
     # Проверяем кол-во операторов и чисел
-    if len(operation) > 1 and len(numbers) > 1:
+    if len(operations) > 1 and len(numbers) > 1:
         raise Exception(
             "//т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)"
         )
@@ -29,8 +29,9 @@ def _parse_input(input_str: str) -> tuple[list[int], str]:
             raise ValueError("Числа должны быть в диапазоне от 1 до 10")
 
 
-    if operation not in "+-*/":
-        raise ValueError("Неизвестная операция")
+    for operation in operations:
+        if operation not in "+-*/":
+            raise Exception('Неизвестная операция')
 
     return numbers, operation
 
