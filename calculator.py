@@ -18,7 +18,9 @@ def _parse_input(input_str: str) -> tuple[list[int], str]:
     match len(numbers):
         case 1:
             raise Exception("//т.к. строка не является математической операцией")
-        case 3:
+        case 2:
+            pass
+        case _:
             raise Exception()
 
     # Проверяем диапазон чисел
