@@ -5,17 +5,28 @@ def _parse_input(input_str: str) -> tuple[list[int], str]:
     # Разделяем строку и преобразуем в список чисел
     numbers = [int(num) for num in input_str.split() if num.isdigit()]
 
+    # Извлекаем операцию
+    operation = [operation for operation in input_str.split() if operation in "+-*/"]
+
+    # Проверяем кол-во операторов и чисел
+    if len(operation) > 1 and len(numbers) > 2:
+        raise Exception(
+            "//т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)"
+        )
+
     # Проверяем количество чисел
-    if len(numbers) != 2:
-        raise ValueError("Необходимо ввести два числа")
+    match len(numbers):
+        case 1:
+            raise Exception("//т.к. строка не является математической операцией")
+        case 3:
+            raise Exception()
 
     # Проверяем диапазон чисел
     for num in numbers:
         if not 1 <= num <= 10:
             raise ValueError("Числа должны быть в диапазоне от 1 до 10")
 
-    # Извлекаем операцию
-    operation = input_str.split()[1]
+
     if operation not in "+-*/":
         raise ValueError("Неизвестная операция")
 
