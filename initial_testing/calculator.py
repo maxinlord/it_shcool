@@ -61,3 +61,6 @@ if __name__ == "__main__":
         input_str = input("Введите выражение (число1 операция число2): ")
         result_str = main(input_str)
         print(result_str)
+
+
+
